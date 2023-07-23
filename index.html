@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">QR Code Generator</h1>
+    <input style="display:block;margin:20px auto 0px auto" type="text" id="qr_text_input" placeholder="Enter Your Text Here">
+    <input style="display:block;margin:20px auto 0px auto" type="text" id="qr_size_input" placeholder="QR Size Example-200">
+    <button style="display:block;margin:20px auto 0px auto" onclick="generateQrCode();">Generate QR Code</button>
+    <div style="display:block;margin:20px auto 0px auto" id="qr_code_image_div">
+
+    </div>
+    
+    
+    <script>
+        function generateQrCode(){
+            var qr_text=document.getElementById('qr_text_input').value;
+            var qr_size=document.getElementById('qr_size_input').value;
+            var qr_dimensions=`${qr_size}x${qr_size}`;
+            var qr_code_link=`https://chart.googleapis.com/chart?cht=qr&chs=${qr_dimensions}&chl=${qr_text}`;
+            var htmlCode=`<img style="display:block;margin:0px auto 0px auto" src="${qr_code_link}">`;
+            document.getElementById('qr_code_image_div').innerHTML=htmlCode;
+        }
+    </script>
+</body>
+</html>
